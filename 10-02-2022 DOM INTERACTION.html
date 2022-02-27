@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="left-panel">
+        <form action="">
+            <div class="form-row">
+                <div class="label">Employee Name:</div>
+                <div class="field">
+                    <input type="text" id="txtName" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="label">Employee Email:</div>
+                <div class="field">
+                    <input type="text" id="txtEmail" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="label">Employee Native:</div>
+                <div class="field">
+                    <select name="" id="ddlCity">
+                        <option value=""></option>
+                        <option value="Chn">Chennai</option>
+                        <option value="Hyd">Nagercoil</option>
+                        <option value="Mum">tirunelveli</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="button" onclick="addUserDetails();">Add</button>
+                <button type="reset">Reset</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="right-panel">
+        <table id="tblUserList">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tblUserListBody">
+               
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+    function addUserDetails() {
+        console.log("add function called");
+        var name = document.getElementById("txtName").value;
+        var email = document.getElementById("txtEmail").value;
+        var city = document.getElementById("ddlCity").value;
+        console.log("details: ", name, email, city);
+
+        var newRow = `<tr>
+                        <td>${name}</td>
+                        <td>${email}</td>
+                        <td>${city}</td>
+                        <td>
+                            <button type="button">Edit</button>
+                            <button type="button">Delete</button>
+                        </td>
+                    </tr>`;
+        document.getElementById("tblUserListBody").innerHTML += newRow;
+    }
+    function nameChanged() {
+        console.log("change event for name called");
+    }
+    </script>
+</body>
+</html>
